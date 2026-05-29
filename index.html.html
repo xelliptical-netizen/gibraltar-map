@@ -4,90 +4,69 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Policy Briefing: Geopolitics & Macroeconomics of Gibraltar</title>
-    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+            margin: 0; padding: 0; width: 100%; height: 100%;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #1F2937;
-            background-color: #F9FAFB;
-            overflow: hidden;
+            color: #1F2937; background-color: #F9FAFB; overflow: hidden;
         }
-        /* Dashboard Layout Split */
-        .container {
-            display: flex;
-            width: 100vw;
-            height: 100vh;
-        }
+        .container { display: flex; width: 100vw; height: 100vh; }
+        
         /* Left Column: Briefing Text Analytics */
         .text-panel {
-            width: 45%;
-            height: 100%;
-            padding: 40px;
-            overflow-y: auto;
-            background-color: #ffffff;
-            border-right: 1px solid #E5E7EB;
+            width: 45%; height: 100%; padding: 40px; overflow-y: auto;
+            background-color: #ffffff; border-right: 1px solid #E5E7EB;
             box-shadow: 2px 0 8px rgba(0,0,0,0.05);
         }
-        /* Right Column: Interactive Map Canvas */
+        
+        /* Right Column: Embedded Map Canvas */
         .map-panel {
-            width: 55%;
-            height: 100%;
-            background-color: #F3F4F6;
-            position: relative;
+            width: 55%; height: 100%; background-color: #F3F4F6;
+            display: flex; flex-direction: column; padding: 20px;
         }
-        #map-container {
-            width: 100%;
-            height: 100%;
+        .map-card {
+            background: white; width: 100%; height: 100%;
+            border-radius: 8px; border: 1px solid #E5E7EB;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            padding: 20px; display: flex; flex-direction: column;
         }
+        .map-title {
+            font-size: 1.1rem; font-weight: bold; color: #0B3D91; margin-bottom: 15px;
+        }
+        .map-frame {
+            flex-grow: 1; display: flex; align-items: center; justify-content: center;
+            background: #F8FAFC; border-radius: 6px; border: 1px dashed #CBD5E1;
+            position: relative; overflow: hidden;
+        }
+
+        /* SVG Map Elements Styling */
+        .world-map-svg { width: 90%; height: 90%; }
+        .country-node { fill: #CBD5E1; stroke: #FFFFFF; stroke-width: 1.5; transition: all 0.3s ease; cursor: pointer; }
+        
+        /* Corporate Palette Color Mappings */
+        .color-gray-negative { fill: #708090; } /* GBR, DEU */
+        .color-blue-positive { fill: #4B779A; } /* ESP, GIB, NLD, MAR, FRA */
+        .color-outlier { fill: #0B3D91; stroke: #F59E0B; stroke-width: 3; } /* CHN, USA, SGP */
+        
+        /* Tooltip Box Styles */
+        .custom-tooltip {
+            position: absolute; bottom: 20px; left: 20px; right: 20px;
+            background: rgba(15, 23, 42, 0.95); color: white;
+            padding: 15px; border-radius: 6px; font-size: 0.85rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            display: none; border-left: 4px solid #F59E0B;
+            animation: fadeIn 0.2s ease-out;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
         /* Typography Styling */
-        .meta-header {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #708090; /* Slate Gray */
-            margin-bottom: 5px;
-        }
-        h1 {
-            font-size: 1.75rem;
-            color: #0B3D91; /* Deep Blue */
-            margin-top: 0;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-        h2 {
-            font-size: 1.1rem;
-            color: #0B3D91;
-            margin-top: 30px;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #F3F4F6;
-            padding-bottom: 6px;
-        }
-        p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #4B5563;
-            margin-bottom: 16px;
-            text-align: justify;
-        }
-        .callout-box {
-            background-color: #F8FAFC;
-            border-left: 4px solid #708090;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 4px 4px 0;
-        }
-        .callout-box p {
-            margin: 0;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
+        .meta-header { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #708090; margin-bottom: 5px; }
+        h1 { font-size: 1.75rem; color: #0B3D91; margin-top: 0; margin-bottom: 25px; line-height: 1.2; }
+        h2 { font-size: 1.1rem; color: #0B3D91; margin-top: 30px; margin-bottom: 12px; border-bottom: 2px solid #F3F4F6; padding-bottom: 6px; }
+        p { font-size: 0.95rem; line-height: 1.6; color: #4B5563; margin-bottom: 16px; text-align: justify; }
+        .callout-box { background-color: #F8FAFC; border-left: 4px solid #708090; padding: 15px; margin: 20px 0; border-radius: 0 4px 4px 0; }
+        .callout-box p { margin: 0; font-style: italic; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -118,71 +97,60 @@
         </div>
 
         <div class="map-panel">
-            <div id="map-container"></div>
+            <div class="map-card">
+                <div class="map-title">Global Trade Flow Shifts & Strategic Chokepoints</div>
+                <div class="map-frame">
+                    
+                    <svg class="world-map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="0" width="1000" height="500" fill="rgba(0,0,0,0)" />
+                        
+                        <path d="M120,120 L280,120 L310,220 L180,240 L100,200 Z" class="country-node color-outlier" onclick="showMetric('USA')" />
+                        <path d="M440,110 L465,100 L460,125 L445,130 Z" class="country-node color-gray-negative" onclick="showMetric('GBR')" />
+                        <path d="M475,120 L495,120 L495,140 L475,140 Z" class="country-node color-gray-negative" onclick="showMetric('DEU')" />
+                        <path d="M455,145 L475,140 L480,165 L460,170 Z" class="country-node color-blue-positive" onclick="showMetric('FRA')" />
+                        <path d="M435,180 L465,175 L455,200 L430,200 Z" class="country-node color-blue-positive" onclick="showMetric('ESP')" />
+                        <circle cx="445" cy="203" r="10" class="country-node color-blue-positive" style="stroke: #0B3D91; stroke-width: 1;" onclick="showMetric('GIB')" />
+                        <path d="M420,220 L460,215 L470,240 L430,250 Z" class="country-node color-blue-positive" onclick="showMetric('MAR')" />
+                        <path d="M468,110 L480,110 L480,118 L468,118 Z" class="country-node color-blue-positive" onclick="showMetric('NLD')" />
+                        <path d="M720,160 L860,180 L840,260 L700,240 Z" class="country-node color-outlier" onclick="showMetric('CHN')" />
+                        <circle cx="810" cy="310" r="12" class="country-node color-outlier" onclick="showMetric('SGP')" />
+
+                        <path d="M280,180 Q560,160 760,210" fill="none" stroke="#708090" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" />
+                        <path d="M445,203 Q620,260 810,310" fill="none" stroke="#0B3D91" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.8" />
+                    </svg>
+
+                    <div id="info-overlay" class="custom-tooltip">
+                        <strong id="tooltip-country" style="font-size:1rem; color:#F59E0B; display:block; margin-bottom:4px;">Click a highlighted country node</strong>
+                        <span id="tooltip-details">Select any country shape on the corporate choropleth framework matrix above to map real-time metrics, structural shift values, and strategic drivers.</span>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        const tradeData = [
-            { iso: "GIB", country: "Gibraltar", shift: 14.5, rank: 4, driver: "2025 Schengen Integration" },
-            { iso: "ESP", country: "Spain", shift: 8.2, rank: 5, driver: "Cross-Border Flow" },
-            { iso: "GBR", country: "United Kingdom", shift: -3.8, rank: 8, driver: "Post-Brexit Realignment" },
-            { iso: "CHN", country: "China", shift: 22.4, rank: 1, driver: "Maritime Corridor" },
-            { iso: "USA", country: "United States", shift: 18.1, rank: 2, driver: "Transshipment" },
-            { iso: "SGP", country: "Singapore", shift: 15.3, rank: 3, driver: "Chokepoint Connectivity" },
-            { iso: "NLD", country: "Netherlands", shift: 6.5, rank: 6, driver: "Maritime Border" },
-            { iso: "MAR", country: "Morocco", shift: 5.1, rank: 7, driver: "Cross-Border Governance" },
-            { iso: "DEU", country: "Germany", shift: -2.1, rank: 9, driver: "Customs Friction" },
-            { iso: "FRA", country: "France", shift: 1.4, rank: 10, driver: "Trade Diversification" }
-        ];
-
-        const locations = tradeData.map(d => d.iso);
-        const shifts = tradeData.map(d => d.shift);
-        const customData = tradeData.map(d => [d.country, d.shift, d.rank, d.driver]);
-
-        const trace = {
-            type: 'choropleth',
-            locations: locations,
-            z: shifts,
-            customdata: customData,
-            colorscale: [[0.0, '#708090'], [1.0, '#0B3D91']], // Slate Gray to Deep Blue
-            hovertemplate: '<b>%{customdata[0]}</b><br>Trade Flow Shift: %{customdata[1]}%<br>Global Rank: %{customdata[2]}<br>Primary Driver: %{customdata[3]}<extra></extra>',
-            colorbar: { 
-                title: 'Shift %',
-                thickness: 15,
-                len: 0.5,
-                x: 0.05,
-                y: 0.3
-            }
+        // Internal immutable vector database matrix
+        const db = {
+            'GIB': { name: "Gibraltar", shift: "+14.5%", rank: "4", driver: "2025 Schengen & Customs Integration Framework agreement execution." },
+            'ESP': { name: "Spain", shift: "+8.2%", rank: "5", driver: "Campo de Gibraltar smooth integrated cross-border employment pipeline." },
+            'GBR': { name: "United Kingdom", shift: "-3.8%", rank: "8", driver: "Post-Brexit regulatory friction and channel supply chain realignment." },
+            'CHN': { name: "China (Top Outlier Highlight)", shift: "+22.4%", rank: "1", driver: "Malacca-Gibraltar deep-sea shipping trade mega-corridor scaling." },
+            'USA': { name: "United States (Top Outlier Highlight)", shift: "+18.1%", rank: "2", driver: "Transatlantic-Mediterranean containerized transshipment acceleration." },
+            'SGP': { name: "Singapore (Top Outlier Highlight)", shift: "+15.3%", rank: "3", driver: "Bimodal choke-point route connectivity optimization metrics." },
+            'NLD': { name: "Netherlands", shift: "+6.5%", rank: "6", driver: "North Sea - Mediterranean maritime customs point shift adjustments." },
+            'MAR': { name: "Morocco", shift: "+5.1%", rank: "7", driver: "Strait of Gibraltar cross-strait security and industrial logistics expansion." },
+            'DEU': { name: "Germany", shift: "-2.1%", rank: "9", driver: "EU-UK withdrawal manufacturing component transit disruptions." },
+            'FRA': { name: "France", shift: "+1.4%", rank: "10", driver: "Western Mediterranean short-sea trade diversification maneuvers." }
         };
 
-        // Outlier overlays (Top 3: CHN, USA, SGP) with a gold highlighted border
-        const outliers = {
-            type: 'choropleth',
-            locations: ['CHN', 'USA', 'SGP'],
-            z: [22.4, 18.1, 15.3],
-            colorscale: [[0.0, '#0B3D91'], [1.0, '#0B3D91']],
-            marker: { line: { color: '#F59E0B', width: 2.5 } }, 
-            showscale: false,
-            hoverinfo: 'skip'
-        };
-
-        const layout = {
-            geo: {
-                projection: { type: 'equirectangular' },
-                showframe: false,
-                showcountries: true,
-                countrycolor: '#D1D5DB',
-                showcoastlines: true,
-                coastlinecolor: '#E5E7EB',
-                showocean: true,
-                oceancolor: '#F3F4F6',
-                landcolor: '#FFFFFF'
-            },
-            margin: { l: 0, r: 0, t: 0, b: 0 }
-        };
-
-        Plotly.newPlot('map-container', [trace, outliers], layout, {responsive: true});
-    </script>
-</body>
-</html>
+        function showMetric(iso) {
+            const data = db[iso];
+            if(!data) return;
+            document.getElementById('tooltip-country').innerText = `${data.name} [ISO: ${iso}]`;
+            document.getElementById('tooltip-details').innerHTML = `<strong>Trade Shift Volume:</strong> ${data.shift} &nbsp;|&nbsp; <strong>Global Rank:</strong> ${data.rank}<br><span style='color:#E5E7EB; display:inline-block; margin-top:5px;'><strong>Strategic Driver:</strong> ${data.driver}</span>`;
+            document.getElementById('info-overlay').style.display = 'block';
+        }
+        
+        // Auto-initialize first outlier on launch
+        window.onload
