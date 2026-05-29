@@ -1,7 +1,188 @@
-<html>
-<head><meta charset="utf-8" /></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Briefing: Geopolitics & Macroeconomics of Gibraltar</title>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #1F2937;
+            background-color: #F9FAFB;
+            overflow: hidden;
+        }
+        /* Dashboard Layout Split */
+        .container {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+        }
+        /* Left Column: Briefing Text Analytics */
+        .text-panel {
+            width: 45%;
+            height: 100%;
+            padding: 40px;
+            overflow-y: auto;
+            background-color: #ffffff;
+            border-right: 1px solid #E5E7EB;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+        }
+        /* Right Column: Interactive Map Canvas */
+        .map-panel {
+            width: 55%;
+            height: 100%;
+            background-color: #F3F4F6;
+            position: relative;
+        }
+        #map-container {
+            width: 100%;
+            height: 100%;
+        }
+        /* Typography Styling */
+        .meta-header {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #708090; /* Slate Gray */
+            margin-bottom: 5px;
+        }
+        h1 {
+            font-size: 1.75rem;
+            color: #0B3D91; /* Deep Blue */
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 1.1rem;
+            color: #0B3D91;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #F3F4F6;
+            padding-bottom: 6px;
+        }
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #4B5563;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        .callout-box {
+            background-color: #F8FAFC;
+            border-left: 4px solid #708090;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .callout-box p {
+            margin: 0;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
 <body>
-    <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>                <div id="d4845a6e-1cff-4063-a826-fade88ac753a" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("d4845a6e-1cff-4063-a826-fade88ac753a")) {                    Plotly.newPlot(                        "d4845a6e-1cff-4063-a826-fade88ac753a",                        [{"colorbar":{"title":{"text":"Trade Flow Shift"}},"colorscale":[[0.0,"#708090"],[1.0,"#0B3D91"]],"customdata":[["Gibraltar",14.5,4,"2025 Schengen & Custom Integration"],["Spain",8.2,5,"Campo de Gibraltar Cross-Border Flow"],["United Kingdom",-3.8,8,"Post-Brexit Market Realignment"],["China",22.4,1,"Malacca-Gibraltar Maritime Corridor"],["United States",18.1,2,"Atlantic-Mediterranean Transshipment"],["Singapore",15.3,3,"Global Chokepoint Bimodal Connectivity"],["Netherlands",6.5,6,"EU Maritime Border Realignment"],["Morocco",5.1,7,"Strait of Gibraltar Cross-Border Governance"],["Germany",-2.1,9,"EU-UK Withdrawal Customs Friction"],["France",1.4,10,"Mediterranean Trade Diversification"]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e\u003cbr\u003eTrade Flow Shift: %{customdata[1]:.1f}%\u003cbr\u003eGlobal Rank: %{customdata[2]}\u003cbr\u003eDriver: %{customdata[3]}\u003cextra\u003e\u003c\u002fextra\u003e","locations":["GIB","ESP","GBR","CHN","USA","SGP","NLD","MAR","DEU","FRA"],"marker":{"line":{"color":"#E5E7EB","width":0.7}},"text":["Gibraltar","Spain","United Kingdom","China","United States","Singapore","Netherlands","Morocco","Germany","France"],"z":{"dtype":"f8","bdata":"AAAAAAAALUBmZmZmZmYgQGZmZmZmZg7AZmZmZmZmNkCamZmZmRkyQJqZmZmZmS5AAAAAAAAAGkBmZmZmZmYUQM3MzMzMzADAZmZmZmZm9j8="},"zmax":22.4,"zmin":-3.8,"type":"choropleth"},{"colorscale":[[0.0,"#708090"],[1.0,"#0B3D91"]],"customdata":[["China",22.4,1,"Malacca-Gibraltar Maritime Corridor"],["United States",18.1,2,"Atlantic-Mediterranean Transshipment"],["Singapore",15.3,3,"Global Chokepoint Bimodal Connectivity"]],"hovertemplate":"\u003cb\u003e%{customdata[0]}\u003c\u002fb\u003e\u003cbr\u003eTrade Flow Shift: %{customdata[1]:.1f}%\u003cbr\u003eGlobal Rank: %{customdata[2]}\u003cbr\u003eDriver: %{customdata[3]}\u003cbr\u003e\u003cb\u003eTop Outlier\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","locations":["CHN","USA","SGP"],"marker":{"line":{"color":"#F59E0B","width":3.2}},"showscale":false,"text":["China","United States","Singapore"],"z":{"dtype":"f8","bdata":"ZmZmZmZmNkCamZmZmRkyQJqZmZmZmS5A"},"zmax":22.4,"zmin":-3.8,"type":"choropleth"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"geo":{"projection":{"type":"equirectangular"},"showframe":false,"showcoastlines":false,"showcountries":true,"countrycolor":"#F3F4F6","showocean":true,"oceancolor":"rgba(229,231,235,0.55)","showland":true,"landcolor":"#F8FAFC","bgcolor":"rgba(0,0,0,0)"},"margin":{"l":0,"r":0,"t":60,"b":0},"font":{"color":"#1F2937","family":"Arial"},"title":{"text":"Global Trade Flow Shift Choropleth"},"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)"},                        {"responsive": true}                    )                };            </script>        </div>
+
+    <div class="container">
+        <div class="text-panel">
+            <div class="meta-header">International Geopolitics & Trade Research Institute | Briefing</div>
+            <h1>The Gibraltar Corridor:<br>Geopolitics & Macroeconomics Post-Brexit</h1>
+            
+            <h2>Executive Summary</h2>
+            <p>The United Kingdom's departure from the European Union has fundamentally disrupted Gibraltar’s historic legal and economic equilibrium, turning the territory into a critical laboratory for modern "flexible sovereignty". Astride a globally vital maritime chokepoint, Gibraltar's future requires balancing lingering Anglo-Spanish sovereignty friction with deep regional economic integration.</p>
+            
+            <h2>Legal Disruption and Sovereignty Dynamics</h2>
+            <p>Brexit structurally severed Gibraltar's formal connection to the EU, which was uniquely predicated on Article 355(3) TEU. Legal scholars reject popular "reverse Greenland" or traditional micro-state analogies as unconvincing, highlighting the unprecedented legal vacuum the territory faced. This systemic shift reopened deep-seated UK-Spain sovereignty disputes, offering Madrid a strategic opening to propose joint or shared sovereignty mechanisms.</p>
+            
+            <div class="callout-box">
+                <p>Strategic Note: Joint sovereignty frameworks remain politically unviable due to absolute rejection by both the UK and Gibraltar, compounded by a lack of internal political consensus within Spain.</p>
+            </div>
+            
+            <p>Furthermore, while the initial EU-UK Withdrawal Agreement provided a specific Protocol on Gibraltar to stabilize immediate cross-border civic rights and environmental policies, it left the territory significantly less insulated by EU law than other protocol regions.</p>
+            
+            <h2>The 2025 Hybrid Model and Regional Interdependence</h2>
+            <p>Gibraltar's macroeconomic stability is inextricably tied to unhindered cross-border flows of labor, services, and goods from mainland Spain. Consequently, securing structural integration into the Schengen zone and a custom-tailored union was widely recognized as the only mechanism capable of preserving its distinct economic advantages.</p>
+            <p>The historic 2025 political agreement successfully institutionalized a hybrid governance model. Under this framework, Gibraltar retains British sovereignty while joining the Schengen area and a bespoke customs union. By entirely dismantling the physical land border with Spain and shifting dual immigration/customs checks to the port and airport, this model provides a compelling case study in differentiated European integration. This arrangement directly stabilizes the vulnerable surrounding economic zone of Campo de Gibraltar, which relies heavily on Gibraltarian economic vitality.</p>
+            
+            <h2>Strategic Position as a Global Maritime Chokepoint</h2>
+            <p>On a macro-geopolitical scale, Gibraltar's significance is cemented by its geography. Academically classified alongside the Strait of Malacca as one of the world's most critical maritime chokepoints, the Strait of Gibraltar functions as a primary economic and political artery for global trade, military deployment, and energy transport. Facilitating the transit of over 100,000 vessels annually, the corridor presents complex cross-border governance challenges, specifically regarding maritime security and environmental protection.</p>
+        </div>
+
+        <div class="map-panel">
+            <div id="map-container"></div>
+        </div>
+    </div>
+
+    <script>
+        const tradeData = [
+            { iso: "GIB", country: "Gibraltar", shift: 14.5, rank: 4, driver: "2025 Schengen Integration" },
+            { iso: "ESP", country: "Spain", shift: 8.2, rank: 5, driver: "Cross-Border Flow" },
+            { iso: "GBR", country: "United Kingdom", shift: -3.8, rank: 8, driver: "Post-Brexit Realignment" },
+            { iso: "CHN", country: "China", shift: 22.4, rank: 1, driver: "Maritime Corridor" },
+            { iso: "USA", country: "United States", shift: 18.1, rank: 2, driver: "Transshipment" },
+            { iso: "SGP", country: "Singapore", shift: 15.3, rank: 3, driver: "Chokepoint Connectivity" },
+            { iso: "NLD", country: "Netherlands", shift: 6.5, rank: 6, driver: "Maritime Border" },
+            { iso: "MAR", country: "Morocco", shift: 5.1, rank: 7, driver: "Cross-Border Governance" },
+            { iso: "DEU", country: "Germany", shift: -2.1, rank: 9, driver: "Customs Friction" },
+            { iso: "FRA", country: "France", shift: 1.4, rank: 10, driver: "Trade Diversification" }
+        ];
+
+        const locations = tradeData.map(d => d.iso);
+        const shifts = tradeData.map(d => d.shift);
+        const customData = tradeData.map(d => [d.country, d.shift, d.rank, d.driver]);
+
+        const trace = {
+            type: 'choropleth',
+            locations: locations,
+            z: shifts,
+            customdata: customData,
+            colorscale: [[0.0, '#708090'], [1.0, '#0B3D91']], // Slate Gray to Deep Blue
+            hovertemplate: '<b>%{customdata[0]}</b><br>Trade Flow Shift: %{customdata[1]}%<br>Global Rank: %{customdata[2]}<br>Primary Driver: %{customdata[3]}<extra></extra>',
+            colorbar: { 
+                title: 'Shift %',
+                thickness: 15,
+                len: 0.5,
+                x: 0.05,
+                y: 0.3
+            }
+        };
+
+        // Outlier overlays (Top 3: CHN, USA, SGP) with a gold highlighted border
+        const outliers = {
+            type: 'choropleth',
+            locations: ['CHN', 'USA', 'SGP'],
+            z: [22.4, 18.1, 15.3],
+            colorscale: [[0.0, '#0B3D91'], [1.0, '#0B3D91']],
+            marker: { line: { color: '#F59E0B', width: 2.5 } }, 
+            showscale: false,
+            hoverinfo: 'skip'
+        };
+
+        const layout = {
+            geo: {
+                projection: { type: 'equirectangular' },
+                showframe: false,
+                showcountries: true,
+                countrycolor: '#D1D5DB',
+                showcoastlines: true,
+                coastlinecolor: '#E5E7EB',
+                showocean: true,
+                oceancolor: '#F3F4F6',
+                landcolor: '#FFFFFF'
+            },
+            margin: { l: 0, r: 0, t: 0, b: 0 }
+        };
+
+        Plotly.newPlot('map-container', [trace, outliers], layout, {responsive: true});
+    </script>
 </body>
 </html>
